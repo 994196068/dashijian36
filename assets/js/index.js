@@ -1,25 +1,25 @@
 $(function() {
 
-    //调用 getUserInfo 函数获取用户信息
-    getUserInfo()
-        //点击按钮退出功能函数
-    var layer = layui.layer
+        //调用 getUserInfo 函数获取用户信息
+        getUserInfo()
+            //点击按钮退出功能函数
+        var layer = layui.layer
 
-    $("#btnlogout").on("click", function() {
-        //退出提示框
-        layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function(index) {
-            //do something
-            //清空token里存储的数据
-            localStorage.removeItem("token")
-                //重新跳转到登录页面
-            location.href = "/login.html"
-                // layui自带关闭询问框
-            layer.close(index);
+        $("#btnlogout").on("click", function() {
+            //退出提示框
+            layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function(index) {
+                //do something
+                //清空token里存储的数据
+                localStorage.removeItem("token")
+                    //重新跳转到登录页面
+                location.href = "/login.html"
+                    // layui自带关闭询问框
+                layer.close(index);
 
-        });
+            });
+        })
     })
-})
-
+    //获取用户信息
 function getUserInfo() {
     $.ajax({
         method: "GET",
